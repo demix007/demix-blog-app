@@ -1,2 +1,8 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<section class="full_post_container">
+  <%= render partial: 'shared/post', locals: { post: @post, show_full_post: true } %>
+  <div class="full_comments_container">
+    <% @post.comments.each do |comment| %>
+      <%= render partial: 'shared/comment', locals: { comment: comment } %>
+    <% end %>
+  </div>
+</section>
