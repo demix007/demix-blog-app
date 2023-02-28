@@ -17,5 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment.destroy
+      redirect_to user_post_path(user_id: current_user.id, id: @comment.post_id), notice: 'Comment deleted successfully'
+    else
+      flash.new[:alert] = @comment.errors.full_messages.first if @comment.errors.any?
+      render :show, status: 400
+    end
   end
 end
