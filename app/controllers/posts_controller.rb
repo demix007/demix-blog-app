@@ -27,4 +27,8 @@ class PostsController < ApplicationController
       render :new, status: 400
     end
   end
+
+  def post_params
+    params.require(:post).permit(:title, :text, :comments_counter, :likes_counter)
+  end
 end
