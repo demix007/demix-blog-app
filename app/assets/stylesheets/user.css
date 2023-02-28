@@ -1,76 +1,67 @@
 .users_container {
-    border: 2px solid rgb(151, 148, 148);
-    padding: 4em 6em;
-  }
-  
-  .users_container > div {
-    display: grid;
-    gap: 2em;
-  }
-  
-  .user_details_container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 3.2em;
-    height: 19vh;
-  }
-  
-  .user_img {
-    display: flex;
-    text-align: center;
-    border: 3px solid grey;
-    height: 100%;
-  }
-  
-  .user_img img {
-    width: 100%;
-  }
-  
-  .user_details {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    border: 3px solid;
-    padding: 1em 2em;
-  }
-  
-  .user_details h2 {
-    font-size: 2.5em;
-  }
-  
-  .user_details p {
-    font-size: 1.2em;
-    margin-top: -5rem;
-    align-self: flex-end;
-  }
-  
-  .users_container {
-    padding: 4.1em 6.2em;
-  }
-  
-  .user_bio {
-    gap: 1.3em;
-    display: flex;
-    flex-direction: column;
-    margin: 2.5em 0;
-    border: 2px solid rgb(150, 148, 148);
-    padding: 1.6em 1.3em;
-  }
-  
-  .user_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid gray;
-    margin: 1em auto;
-    padding: 1em 2.5em;
-    box-shadow: 3.5px 2px;
-  }
-  
-  .btn a {
-    cursor: pointer;
-    font-size: 1.2em;
-    font-weight: 700;
-  }
+  border: 2px solid rgb(151, 148, 148);
+  padding: 4em 6em;
+}
+
+.user_details_container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 3.2em;
+  height: 19vh;
+}
+
+.user_img {
+  display: flex;
+  text-align: center;
+  border: 3px solid grey;
+  height: 100%;
+}
+
+.user_img img {
+  width: 100%;
+}
+
+.user_details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 3px solid;
+  padding: 1em 2em;
+}
+
+.user_details h2 {
+  font-size: 2.5em;
+}
+
+.user_details p {
+  font-size: 1.2em;
+  margin-top: -5rem;
+  align-self: flex-end;
+}
+
+.user_bio {
+  gap: 1.3em;
+  display: flex;
+  flex-direction: column;
+  margin: 2.5em 0;
+  border: 2px solid rgb(150, 148, 148);
+  padding: 1.6em 1.3em;
+}
+
+.user_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid gray;
+  margin: 1em auto;
+  padding: 1em 2.5em;
+  box-shadow: 3.5px 2px;
+}
+
+.btn a {
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 700;
+}
