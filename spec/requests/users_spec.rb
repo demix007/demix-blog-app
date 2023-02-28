@@ -7,7 +7,6 @@ RSpec.describe 'UsersController', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-
     it 'renders index template correctly' do
       expect(response).to render_template(:index)
     end
