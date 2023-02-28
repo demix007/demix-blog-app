@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<section class="posts_container">
+  <%= render partial: "shared/user", locals: {user: @user || "No users found"} %>
+  <% @posts.each do |post| %>
+    <%= link_to user_post_path(user_id: post.author.id, id: post.id), class: "post_partial" do %>
+  <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
+  <% end %>
+  <div class="recent_comments">
+    <% post.recent_comments.each do |comment| %>
+      <%= render partial: 'shared/comment', locals: { comment: comment } %>
+    <% end %>
+  </div>
+  <% end %>
+  <button type="button" class="btn">Pagination</button>
+</section>

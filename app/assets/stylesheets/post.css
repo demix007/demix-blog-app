@@ -1,0 +1,62 @@
+.active {
+  color: rgb(244, 4, 4);
+}
+
+.about_posts_container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(152, 149, 149);
+  padding: 1em;
+  margin: 1.6em 0;
+  gap: 1em;
+}
+
+.posts_container {
+  padding: 4.2em 5.9em;
+}
+
+.post_actions {
+  display: flex;
+  align-self: flex-end;
+  gap: 2em;
+}
+
+.posts_container > .about_posts_container {
+  margin-bottom: 0.2em;
+}
+
+.post_container {
+  padding: 4.1em 5.8em;
+}
+
+.post_container .post_text {
+  display: flex;
+  border: 2px solid rgb(79, 71, 71);
+  margin-top: 1em;
+}
+
+.post_container > .about_posts_container {
+  margin-bottom: 0.2em;
+  gap: 0;
+}
+
+.recent_comments {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 3px solid rgb(116, 114, 114);
+  gap: 0.4em;
+}
+
+.comment_details_container {
+  gap: 1em;
+  display: flex;
+}
+
+.comments_container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgb(77, 75, 75);
+  gap: 0.4em;
+  padding: 1em;
+}

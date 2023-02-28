@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section class="user_container">
+  <%= render partial: "shared/user", locals: {user: @user || "No users found"} %>
+
+  <div class="user_bio">
+    <h3> User Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+
+  <% @recent_posts.each do |post| %>
+    <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
+  <% end %>
+
+  <button type="button" class="user_btn"><%= link_to "See all Users Posts", user_posts_path(@user) %></button>
+</section> 
