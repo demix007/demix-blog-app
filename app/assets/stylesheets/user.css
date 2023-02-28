@@ -1,62 +1,76 @@
-.post_details_container {
-    gap: 1em;
-    padding: 1em;
-    display: flex;
-    margin: 1.4em 0;
-    border: 3px solid;
-    flex-direction: column;
-  }
-  
-  .all_posts_container {
+.users_container {
+    border: 2px solid rgb(151, 148, 148);
     padding: 4em 6em;
   }
   
-  .post_stats {
+  .users_container > div {
+    display: grid;
     gap: 2em;
+  }
+  
+  .user_details_container {
     display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 3.2em;
+    height: 19vh;
+  }
+  
+  .user_img {
+    display: flex;
+    text-align: center;
+    border: 3px solid grey;
+    height: 100%;
+  }
+  
+  .user_img img {
+    width: 100%;
+  }
+  
+  .user_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 3px solid;
+    padding: 1em 2em;
+  }
+  
+  .user_details h2 {
+    font-size: 2.5em;
+  }
+  
+  .user_details p {
+    font-size: 1.2em;
+    margin-top: -5rem;
     align-self: flex-end;
   }
   
-  .all_posts_container > .post_details_container {
-    margin-bottom: 0.2em;
+  .users_container {
+    padding: 4.1em 6.2em;
   }
   
-  .recent_comments_container {
-    gap: 0.4em;
+  .user_bio {
+    gap: 1.3em;
     display: flex;
-    padding: 1em;
-    border: 3px solid;
     flex-direction: column;
+    margin: 2.5em 0;
+    border: 2px solid rgb(150, 148, 148);
+    padding: 1.6em 1.3em;
   }
   
-  .comment_details_container {
-    gap: 1em;
+  .user_btn {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid gray;
+    margin: 1em auto;
+    padding: 1em 2.5em;
+    box-shadow: 3.5px 2px;
   }
   
-  .active {
-    color: red;
-  }
-  
-  .full_post_container {
-    padding: 4em 6em;
-  }
-  
-  .full_comments_container {
-    gap: 0.4em;
-    padding: 1em;
-    display: flex;
-    border: 3px solid;
-    flex-direction: column;
-  }
-  
-  .full_post_container > .post_details_container {
-    margin-bottom: 0.2em;
-    gap: 0;
-  }
-  
-  .full_post_container .post_text {
-    order: 1;
-    display: flex;
-    margin-top: 1em;
+  .btn a {
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 700;
   }
