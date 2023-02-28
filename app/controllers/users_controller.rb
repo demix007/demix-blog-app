@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @user_id = params[:user_id]
   end
 
   def show
+    @id = params[:user_id]
   end
 end
