@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
   def new
+    @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
+    @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
     @comment.author = current_user
     @comment.post = @post
@@ -25,5 +27,9 @@ class CommentsController < ApplicationController
       flash.new[:alert] = @comment.errors.full_messages.first if @comment.errors.any?
       render :show, status: 400
     end
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
