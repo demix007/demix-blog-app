@@ -60,6 +60,12 @@
   box-shadow: 3.5px 2px;
 }
 
+.btn_container {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+}
+
 .btn a {
   cursor: pointer;
   font-size: 1.2em;
