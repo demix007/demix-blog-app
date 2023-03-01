@@ -2,7 +2,7 @@
   <%= render partial: "shared/user", locals: {user: @user || "No users found"} %>
 
   <div class="user_bio">
-    <h3> User Bio</h3>
+    <h3> <%= @user.name %>'s Bio</h3>
     <p><%= @user.bio %></p>
   </div>
 
@@ -11,7 +11,7 @@
   <% end %>
 
     <div class="btn_container">
-    <button type="button" class="btn"><%= link_to "See all Posts", user_posts_path(@user) %></button>
-    <button type="button" class="create_post_btn btn"><%= link_to "Create Post", new_user_post_path(@user) %></button>
+      <button type="button" class="btn"><%= link_to "Click to view all Posts", user_posts_path(@user) %></button>
+     <button type="button" class="create_post_btn btn"><%= link_to "Create A New Post", new_user_post_path(@user) %></button>
   </div>
 </section> 
