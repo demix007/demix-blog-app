@@ -49,5 +49,10 @@ RSpec.describe 'Posts Show', type: :feature do
             visit user_post_path(@user1, @post.id)
             expect(page).to have_content('Demix')
         end
+
+        it 'is to display the likes counter' do
+            visit user_post_path(@user1, @post.id)
+            expect(page).to have_content('Likes: 2')
+        end
     end
 end
