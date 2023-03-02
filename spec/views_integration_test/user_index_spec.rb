@@ -17,5 +17,11 @@ RSpec.describe 'users Index Page', type: :feature do
         posts_counter: 9
       )
     end
+
+    it 'displays the user name' do
+      visit users_path
+      expect(page).to have_content(@user1.name)
+      expect(page).to have_content(@user2.name)
+    end
   end
 end
