@@ -45,5 +45,9 @@ RSpec.describe 'User Index Page', type: :feature do
     it 'shows the total number of posts from the user' do
         expect(page).to have_content("Number of posts: #{@user.posts_counter || 0}")
     end
+
+    it 'verifies that there is a button to view all posts from users' do
+        expect(page).to have_link('Click to view all Posts', href: user_posts_path(user_id: @user.id))
+    end
   end
 end
