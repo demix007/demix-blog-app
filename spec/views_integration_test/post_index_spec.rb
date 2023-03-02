@@ -33,5 +33,11 @@ RSpec.describe 'Posts Show', type: :feature do
 
     Like.create(post_id: @post.id, author_id: @user2.id)
     Like.create(post_id: @post.id, author_id: @user1.id)
+    
+    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'This is a nice project')
+    Comment.create(post_id: @post.id, author_id: @user1.id, text: 'This comment was created by user 1')
+    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'Nice post')
+    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'Another Nice post')
+
 
 end
