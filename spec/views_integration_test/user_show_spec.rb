@@ -21,9 +21,12 @@ RSpec.describe 'User Index Page', type: :feature do
   describe 'User show page' do
     before(:each) { visit user_path(id: @user.id) }
 
-    it "is to display the user's name and path" do
+    it "is to display the user's name" do
       expect(page).to have_content(@user.name)
-      expect(page).to have_link(@user.name, href: user_path(id: @user.id))
+    end
+
+    it "is to redirect to the user's path" do
+        expect(page).to have_link(@user.name, href: user_path(id: @user.id))
     end
   end
 end
