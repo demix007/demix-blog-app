@@ -30,5 +30,10 @@ RSpec.describe 'users Index Page', type: :feature do
       expect(page).to have_link(@user2.name, href: user_path(@user2))
     end
 
+    it 'displays user image of each user' do
+      visit users_path
+      expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
+      expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
+    end
   end
 end
