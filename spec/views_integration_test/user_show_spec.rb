@@ -49,5 +49,15 @@ RSpec.describe 'User Index Page', type: :feature do
     it 'verifies that there is a button to view all posts from users' do
         expect(page).to have_link('Click to view all Posts', href: user_posts_path(user_id: @user.id))
     end
+
+    it 'redirects to open all posts created by a user' do
+        click_link('Click to view all Posts')
+        expect(page).to have_current_path(user_posts_path(@user))
+    end
+      
+    it 'redirects to the post show page' do
+        click_link(@post.text)
+        expect(page).to have_current_path(user_post_path(@user, @post))
+    end
   end
 end
