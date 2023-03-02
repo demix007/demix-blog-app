@@ -28,5 +28,9 @@ RSpec.describe 'User Index Page', type: :feature do
     it "is to redirect to the user's path" do
         expect(page).to have_link(@user.name, href: user_path(id: @user.id))
     end
+
+    it 'is to display the right container for the users' do
+        expect(page).to have_css('section.user_container')
+      end
   end
 end
