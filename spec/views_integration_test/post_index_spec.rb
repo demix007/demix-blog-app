@@ -1,75 +1,99 @@
 require 'rails_helper'
-RSpec.describe 'Posts Show', type: :feature do
-  before(:each) do
-    @user1 = User.create(
-      name: 'Ayodeji Abidemi',
-      photo: 'https://picsum.photos/400/250',
-      bio: 'Abidemi is a rails developer',
-      posts_counter: 8
-    )
 
-    @user2 = User.create(
-        name: 'Demix',
-        bio: 'A student at Microverse',
-        photo: 'https://picsum.photos/350/250',
-        posts_counter: 5
-    )
+RSpec.describe 'PostIndex', type: :feature do
+  describe 'Post Index page' do
+    before(:each) do
+      @user1 = User.create(
+        name: 'Ayodeji Abidemi', 
+        photo: 'https://unsplash.com/photos/WNoLnJo7tS8', 
+        posts_counter: 2,
+        bio: 'developer'
+      )
 
-    @post = Post.create(
+      @post1 = Post.create(
+        title: 'First Mock Post', 
+        text: 'I like First Mock Post', 
+        comments_counter: 4,                    
+        likes_counter: 7, 
+        author_id: @user1.id
+      )
+
+      @post2 = Post.create(
+        title: 'Second Mock Post', 
+        text: 'He likes criket', 
+        comments_counter: 6,
+        likes_counter: 9, 
+        author_id: @user1.id
+      )
+
+      @post3 = Post.create(
+        title: 'Third Mock Post', 
+        text: 'He likes tennis',
+        comments_counter: 8,
+        likes_counter: 14, 
+        author_id: @user1.id
+      )
+
+      @comment1 = Comment.create(
+        text: 'This is the first comment', 
         author_id: @user1.id,
-        title: 'This is the title of the post',
-        text: 'This is the text contained in the post',
-        comments_counter: 0,
-        likes_counter: 0
-    )
+        post_id: @post1.id
+      )
 
-    @post = Post.create(
+      @comment2 = Comment.create(
+        text: 'This is the second comment', 
         author_id: @user1.id,
-        title: 'This is the title of the post',
-        text: 'This is the text contained in the post',
-        comments_counter: 0,
-        likes_counter: 0
-    )
+        post_id: @post1.id
+      )
 
-    Like.create(post_id: @post.id, author_id: @user2.id)
-    Like.create(post_id: @post.id, author_id: @user1.id)
-    
-    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'This is a nice project')
-    Comment.create(post_id: @post.id, author_id: @user1.id, text: 'This comment was created by user 1')
-    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'Nice post')
-    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'Another Nice post')
+      @comment3 = Comment.create(
+        text: 'This is the third comment', 
+        author_id: @user1.id,
+        post_id: @post1.id
+      )
 
-    describe 'Post Index Page' do
-        it 'is to display the post author' do
-          visit user_post_path(@user1, @post.id)
-          expect(page).to have_content('Ayodeji Abidemi')
-        end
-
-        it 'is to display the user name of each commentor' do
-            visit user_post_path(@user1, @post.id)
-            expect(page).to have_content('Demix')
-        end
-
-        it 'is to display the likes counter' do
-            visit user_post_path(@user1, @post.id)
-            expect(page).to have_content('Likes: 2')
-        end
-
-        it 'is to display the comments counter' do
-            visit user_post_path(@user1, @post.id)
-            expect(page).to have_content('Comments: 4')
-        end
-
-        it 'is to display the comment text' do
-            visit user_post_path(@user1, @post.id)
-            expect(page).to have_content('This is a nice project')
-            expect(page).to have_content('This comment was created by user 1')
-            expect(page).to have_content('Nice post')
-        end
-
-        it 'is to display the post body' do
-            visit user_post_path(@user1, @post.id)
-            expect(page).to have_content('This is the text contained in the post')
-        end
+      visit user_posts_path(@user1.id)
     end
+
+    it 'displays the username' do
+      expect(page).to have_content(@user1.name)
+    end
+
+    it 'displays user profile image' do
+      expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
+    end
+
+    it 'displays the title of posts' do
+        expect(page).to have_content('Post #')
+    end
+
+    it 'displays the post body' do
+        expect(page).to have_content(@post1.text)
+    end
+
+    it 'display total number of posts by a user' do
+      expect(page).to have_content(@user1.posts_counter)
+    end
+
+    it 'displays total likes for a post' do
+        expect(page).to have_content(@post1.likes_counter)
+    end
+
+    it 'displays the first comment made by a user' do
+      expect(page).to have_content(@comment3.text)
+    end
+
+    it 'displays post comments counter' do
+        expect(page).to have_content(@post1.comments_counter)
+    end
+
+    it 'shows a section for pagination if there are more posts than fit on the view' do
+        expect(page).to have_content('Pagination')
+    end
+
+    it 'shows pagination button' do
+      visit "/users/#{@user1.id}/posts"
+      expect(page).to have_content('Pagination')
+    end
+  end
 end
