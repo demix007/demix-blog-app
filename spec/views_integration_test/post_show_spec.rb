@@ -24,12 +24,12 @@ RSpec.describe 'Posts Show', type: :feature do
     )
 
     @post = Post.create(
-        author_id: @user1.id,
-        title: 'This is the title of the post',
-        text: 'This is the text contained in the post',
-        likes_counter: 0,
-        comments_counter: 0,
-      )
+      author_id: @user1.id,
+      title: 'This is the title of the post',
+      text: 'This is the text contained in the post',
+      likes_counter: 0,
+      comments_counter: 0
+    )
 
     Like.create(post_id: @post.id, author_id: @user2.id)
     Like.create(post_id: @post.id, author_id: @user1.id)
@@ -46,8 +46,8 @@ RSpec.describe 'Posts Show', type: :feature do
     end
 
     it 'is to display the likes counter' do
-        visit user_post_path(@user1, @post.id)
-        expect(page).to have_content('Likes: 2')
+      visit user_post_path(@user1, @post.id)
+      expect(page).to have_content('Likes: 2')
     end
 
     it 'is to display the comments counter' do
@@ -56,15 +56,15 @@ RSpec.describe 'Posts Show', type: :feature do
     end
 
     it 'is to display the comment text' do
-        visit user_post_path(@user1, @post.id)
-        expect(page).to have_content('This is a nice project')
-        expect(page).to have_content('This comment was created by user 1')
-        expect(page).to have_content('Nice post')
+      visit user_post_path(@user1, @post.id)
+      expect(page).to have_content('This is a nice project')
+      expect(page).to have_content('This comment was created by user 1')
+      expect(page).to have_content('Nice post')
     end
 
     it 'is to display the user name of each user with comments' do
-        visit user_post_path(@user1, @post.id)
-        expect(page).to have_content('Demix')
+      visit user_post_path(@user1, @post.id)
+      expect(page).to have_content('Demix')
     end
 
     it 'is to display the post body' do
