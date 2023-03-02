@@ -31,4 +31,7 @@ RSpec.describe 'Posts Show', type: :feature do
         likes_counter: 0
     )
 
+    Like.create(post_id: @post.id, author_id: @user2.id)
+    Like.create(post_id: @post.id, author_id: @user1.id)
+
 end
