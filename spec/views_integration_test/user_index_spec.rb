@@ -35,5 +35,11 @@ RSpec.describe 'users Index Page', type: :feature do
       expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
       expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
     end
+
+    it 'displays user number of post' do
+      visit users_path
+      expect(page).to have_content(@user1.posts_counter)
+      expect(page).to have_content(@user2.posts_counter)
+    end
   end
 end
