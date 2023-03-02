@@ -8,4 +8,11 @@ RSpec.describe 'Posts Show', type: :feature do
       posts_counter: 8
     )
 
+    @user2 = User.create(
+        name: 'Demix',
+        bio: 'A student at Microverse',
+        photo: 'https://picsum.photos/350/250',
+        posts_counter: 5
+    )
+
 end
