@@ -15,4 +15,12 @@ RSpec.describe 'Posts Show', type: :feature do
         posts_counter: 5
     )
 
+    @post = Post.create(
+        author_id: @user1.id,
+        title: 'This is the title of the post',
+        text: 'This is the text contained in the post',
+        comments_counter: 0,
+        likes_counter: 0
+    )
+
 end
