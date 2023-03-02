@@ -6,5 +6,10 @@
       <%= render partial: 'shared/comment', locals: { comment: comment } %>
     <% end %>
   </div>
-    <button type="button" class="new_post_btn btn"><%= link_to "Add new comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id) %></button>
+    <button type="button" class="new_post_btn btn">
+      <%= link_to "Add new comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id) %>
+    </button>
+    <button type="button" class="back_btn btn">
+      <%= link_to "Click to go back to posts page", user_posts_path(@user) %>
+    </button>
 </section>
