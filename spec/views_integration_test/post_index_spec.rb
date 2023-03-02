@@ -39,5 +39,10 @@ RSpec.describe 'Posts Show', type: :feature do
     Comment.create(post_id: @post.id, author_id: @user2.id, text: 'Nice post')
     Comment.create(post_id: @post.id, author_id: @user2.id, text: 'Another Nice post')
 
-
+    describe 'Post Index Page' do
+        it 'is to display the post author' do
+          visit user_post_path(@user1, @post.id)
+          expect(page).to have_content('Ayodeji Abidemi')
+        end
+    end
 end
