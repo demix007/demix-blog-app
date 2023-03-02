@@ -44,5 +44,10 @@ RSpec.describe 'Posts Show', type: :feature do
           visit user_post_path(@user1, @post.id)
           expect(page).to have_content('Ayodeji Abidemi')
         end
+
+        it 'is to display the user name of each commentor' do
+            visit user_post_path(@user1, @post.id)
+            expect(page).to have_content('Demix')
+        end
     end
 end
