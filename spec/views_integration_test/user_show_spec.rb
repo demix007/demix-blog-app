@@ -9,5 +9,12 @@ RSpec.describe 'User Index Page', type: :feature do
       posts_counter: 12
     )
 
- 
+    @post = Post.create!(
+      title: 'New Post', 
+      text: 'This is another post from Ayodeji Abidemi', 
+      comments_counter: 26, 
+      likes_counter: 26,
+      author: @user
+    )
+  end
 end
