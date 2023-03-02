@@ -31,6 +31,10 @@ RSpec.describe 'User Index Page', type: :feature do
 
     it 'is to display the right container for the users' do
         expect(page).to have_css('section.user_container')
-      end
+    end
+
+    it "displays the user's profile picture" do
+        expect(page.has_xpath?("//img[@src = '#{@user.photo}' ]"))
+    end
   end
 end
