@@ -66,5 +66,10 @@ RSpec.describe 'Posts Show', type: :feature do
             expect(page).to have_content('This comment was created by user 1')
             expect(page).to have_content('Nice post')
         end
+
+        it 'is to display the post body' do
+            visit user_post_path(@user1, @post.id)
+            expect(page).to have_content('This is the text contained in the post')
+        end
     end
 end
