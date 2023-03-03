@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h3><b>My Blog App</b></h3>
+  <h3><b>Demix Blog App</b></h3>
 
 </div>
 
@@ -101,7 +101,7 @@ Clone this repository to your desired folder:
 ```
  - mkdir my-folder
  - cd my-folder
- - git clone git@github.com:demix007/my-blog-app.git
+ - git clone git@github.com:demix007/demix-blog-app.git
  - cd Blog-app
  - bundle install
  - rails db:create
