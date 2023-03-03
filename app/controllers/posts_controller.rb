@@ -29,4 +29,8 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
+
+  def include_user
+    @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
+  end
 end

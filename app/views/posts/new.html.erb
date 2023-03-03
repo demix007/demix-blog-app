@@ -1,3 +1,7 @@
 <div class="new_post_container">
-  <%= render partial: "shared/form", locals: { post: @post } %>
+    <%= form_with model: @post, url: user_posts_path, local: true do |f| %>
+    <%= f.text_field :title, class: "f_title", placeholder: "Enter the post title here" %>
+    <%= f.text_area :text, class: "f_text", placeholder: "Enter the post text here" %>
+    <%= f.submit "Submit", class: "submit-button btn" %>
+  <% end %>
 </div>

@@ -1,6 +1,9 @@
 <section class="new_comment_container">
-  <%= form_with model: @comment, url: user_post_comments_path, local: true do |form| %>
-    <%= form.text_field :text, class: "comment_field", placeholder: "Enter a text here" %>
-    <%= form.submit "Add comment", class: "submit-btn btn" %>
+  <%= form_with model: @comment, url: user_post_comments_path, local: true do |f| %>
+    <%= f.text_field :text, class: "comment_field", placeholder: "Enter the post text here" %>
+    <%= f.submit "Add New comment here", class: "submit-btn btn" %>
   <% end %>
+  <button type="button" class="back_btn btn">
+    <%= link_to "Click Here To Go back to post", user_post_path(user_id: @post.author.id, id: @post.id) %>
+  </button>
 </section>
